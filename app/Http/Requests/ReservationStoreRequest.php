@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Product;
+use App\Rules\ProductQuantityRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReservationStoreRequest extends FormRequest
@@ -25,13 +26,13 @@ class ReservationStoreRequest extends FormRequest
         $product = Product::find($this->get('product_id'));
 
         $rules = [
-            'product_id' => 'required|exists:App\Models\Product,id',
+            'product_id' => ['required', 'exists:App\Models\Product,id'],
         ];
         
         if($product) {
-            $rules['quantity'] = 'required|integer|between:1,' . $product->quantity;
+            $rules['quantity'] = ['required', 'integer', new ProductQuantityRule($product)];
         } else {
-            $rules['quantity'] = 'required|integer';
+            $rules['quantity'] = ['required', 'integer'];
         }
         
         return $rules;
