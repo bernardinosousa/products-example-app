@@ -28,13 +28,13 @@ class ReservationStoreRequest extends FormRequest
         $rules = [
             'product_id' => ['required', 'exists:App\Models\Product,id'],
         ];
-        
-        if($product) {
+
+        if ($product) {
             $rules['quantity'] = ['required', 'integer', new ProductQuantityRule($product)];
         } else {
             $rules['quantity'] = ['required', 'integer'];
         }
-        
+
         return $rules;
     }
 }

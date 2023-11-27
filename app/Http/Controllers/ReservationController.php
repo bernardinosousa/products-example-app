@@ -25,7 +25,7 @@ class ReservationController extends Controller
         $reservation = Reservation::create([
             'user_id' => $user->id,
             'product_id' => $request->product_id,
-            'quantity' => $request->quantity
+            'quantity' => $request->quantity,
         ]);
 
         $product->quantity = $product->quantity - $request->quantity;
@@ -39,6 +39,6 @@ class ReservationController extends Controller
 
         $productName = $reservation->product->name;
 
-        return redirect()->route('products.index')->with("success", "Booked $productName with success!");
+        return redirect()->route('products.index')->with('success', "Booked $productName with success!");
     }
 }

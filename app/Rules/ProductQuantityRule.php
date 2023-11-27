@@ -26,7 +26,7 @@ class ProductQuantityRule implements ValidationRule
             $fail('Product out of stock.');
         }
 
-        if($value > $this->product->quantity) {
+        if ($value > $this->product->quantity) {
             $fail('Quantity requested exceeds product quantity.');
         }
     }

@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Models\Product;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -35,11 +34,11 @@ class ImportProductWebserviceJob implements ShouldQueue
     {
         $productWebservice = $this->productWebservice;
 
-        $product = $this->products->first(function (Product $product, int $key) use($productWebservice) {
+        $product = $this->products->first(function (Product $product, int $key) use ($productWebservice) {
             return $product->name == $productWebservice['name'];
         });
 
-        if($product) {
+        if ($product) {
             return;
         }
 
