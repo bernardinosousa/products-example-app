@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    //TODO
+    //Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
     Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 });
 
