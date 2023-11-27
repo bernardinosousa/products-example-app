@@ -1,5 +1,17 @@
 # Products Example App
 
+## Subjects that app contains:
+
+- Feature Tests
+- Unit Tests
+- Task Scheduling / Console Commands
+- Form Validation
+- Integration with Email
+- Database Migrations
+- Laravel Sail (Integration with Docker for local environment)
+- Laravel Pint (Code Styling Fixer)
+- Job Queues
+
 ## Setup local environment
 
 ```
