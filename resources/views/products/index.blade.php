@@ -43,8 +43,8 @@
                             </div>
                         </div>
                         @endforeach
-                        {{ $products->links() }}
                         </div>
+                        {{ $products->links() }}
                     @endif
                 </div>
             </div>
